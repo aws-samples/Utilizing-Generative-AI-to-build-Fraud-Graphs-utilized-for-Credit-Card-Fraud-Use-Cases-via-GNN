@@ -1,6 +1,7 @@
 Fraud Detection Knowledge Graph Pipeline
 
-This notebook demonstrates a comprehensive pipeline for creating a fraud detection knowledge graph using AWS services, including Amazon Bedrock, Amazon Neptune, and Neptune ML.
+This notebook demonstrates a comprehensive pipeline for creating a fraud detection knowledge graph using Amazon Bedrock via the Langchain LLM Graph Transformer library. The graph is then stored into Neptune where a GNN (graphical neural network) is run via SageMaker to perform the fraudulent transaction detection.
+
 Overview
 
 The pipeline consists of the following main steps:
@@ -42,7 +43,7 @@ Neptune Graph Database:
 
 Load the generated nodes and relationships into Amazon Neptune leveraging the following CloudFormation template: https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-quick-start.html
 
-Import the generated Python notebook generated from the template in order to perform basic graph queries to verify data loading.
+Import the Python notebook generated from the template into Neptune in order to perform basic graph queries to verify data loading.
 
 
 Neptune ML:
