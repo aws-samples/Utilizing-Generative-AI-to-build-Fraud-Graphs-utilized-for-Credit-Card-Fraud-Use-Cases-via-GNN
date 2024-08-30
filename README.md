@@ -1,76 +1,145 @@
-Fraud Detection Knowledge Graph Pipeline
+# Fraud Detection Knowledge Graph Pipeline
 
-This notebook demonstrates a comprehensive pipeline for creating a fraud detection knowledge graph using Amazon Bedrock via the Langchain LLM Graph Transformer library. The graph is then stored into Neptune where a GNN (graphical neural network) is run via SageMaker to perform the fraudulent transaction detection.
+## Overview
 
-Overview
+This project demonstrates a comprehensive pipeline for creating a fraud detection knowledge graph using AWS services. The pipeline leverages advanced technologies to process credit card transaction data, generate a knowledge graph, and perform machine learning-based fraud detection.
 
 The pipeline consists of the following main steps:
+1. Data Preparation: Preprocessing of credit card transaction data
+2. Knowledge Graph Generation: Using Amazon Bedrock with Claude 3 Sonnet
+3. Graph Database Population: Loading data into Amazon Neptune
+4. Machine Learning: Utilizing Neptune ML with Graph Neural Networks (GNNs)
+5. Fraud Detection: Performing inferences on the graph to predict fraudulent transactions
 
--Data Preparation
--Knowledge Graph Generation using Amazon Bedrock
--Loading Data into Amazon Neptune
--Machine Learning with Neptune ML leveraging GNN (graphical neural networks)
+## AWS Services Used
 
-Prerequisites
+- **Amazon Bedrock**: Used for generating the knowledge graph structure from transaction data
+- **Amazon Neptune**: Graph database for storing and querying the knowledge graph
+- **Neptune ML**: Machine learning capabilities integrated with Neptune for training GNNs and performing fraud detection
 
-AWS account with access to Amazon Bedrock, Amazon Neptune, and Neptune ML
-Python 3.x
-Required Python libraries: boto3, gremlinpython, and tqdm (install using pip)
+## Data Processing and Knowledge Graph Generation
 
-Setup
+1. **Data Preparation**:
+   - Load and preprocess credit card transaction data (CSV format)
+   - Create input batches for Bedrock processing
 
-Ensure you have the necessary AWS credentials and permissions set up.
-Install required Python libraries:
+2. **Knowledge Graph Generation**:
+   - Utilize Amazon Bedrock with Claude 3 Sonnet model
+   - Process data batches in parallel using Bedrock batch inference jobs
+   - Generate nodes and relationships for the knowledge graph
 
-```pip install boto3 gremlinpython tqdm langchain langchain_experimental nest_asyncio```
+## Neptune ML Process and GNNs
 
+1. **Data Export**: Prepare graph data for ML processing
+2. **Data Processing**: Set up and run data processing jobs
+3. **Model Training**: Train GNN models for fraud detection
+4. **Endpoint Creation**: Deploy trained models for inference
+5. **Inference**: Perform predictions on the graph to identify potential fraudulent transactions
 
-Main Components
+## Prerequisites
 
-Data Preparation:
+- AWS account with access to:
+  - Amazon Bedrock
+  - Amazon Neptune
+  - Neptune ML
+- Python 3.x
+- IAM roles and permissions for accessing AWS services
+- Familiarity with graph databases and machine learning concepts
 
-Load and preprocess the credit card transaction data (in csv format).
-Create input batches for Bedrock processing.
+## Setup and Installation
 
+1. Set up AWS credentials and permissions
+2. Install required Python libraries:
+   ```
+   pip install boto3 gremlinpython tqdm langchain langchain_experimental nest_asyncio
+   ```
+3. Clone this repository:
+   ```
+   git clone <repository_url>
+   cd fraud-detection-knowledge-graph
+   ```
+4. Set up Amazon Neptune cluster using the CloudFormation template:
+   https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-quick-start.html
 
-Knowledge Graph Generation:
+## Usage Guide
 
-Use Amazon Bedrock with Claude 3 Sonnet to generate knowledge graph structures from transaction data.
-Process batches of data in parallel using Bedrock batch inference jobs.
+1. Open the main notebook in Jupyter or your preferred notebook environment
+2. Follow these steps sequentially:
+   a. Data Preparation
+   b. Knowledge Graph Generation
+   c. Loading Data into Neptune
+   d. Neptune ML Setup
+   e. Model Training and Deployment
+   f. Fraud Detection Inference
+3. Execute each cell, following the comments and instructions provided
+4. Analyze the results and visualize the fraud detection outcomes
 
+## Project Structure
 
-Neptune Graph Database:
+- `main_notebook.ipynb`: Main pipeline execution notebook
+- `neptune_ml_utils.py`: Utility functions for Neptune ML operations
+- `data/`: Directory containing input transaction data
+- `output/`: Directory for storing generated knowledge graph data
 
-Load the generated nodes and relationships into Amazon Neptune leveraging the following CloudFormation template: https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-quick-start.html
+## Customization Options
 
-Import the Python notebook generated from the template into Neptune in order to perform basic graph queries to verify data loading.
+- Modify the input data source to include additional transaction features
+- Adjust the knowledge graph schema to capture different relationships
+- Fine-tune ML model configurations for improved fraud detection:
+  - Modify GNN architecture
+  - Adjust hyperparameters
+  - Experiment with different feature encodings
 
+## Interpreting and Using Results
 
-Neptune ML:
+1. Analyze fraud detection outcomes:
+   - Review predicted probabilities for each transaction
+   - Examine patterns in flagged fraudulent transactions
+2. Visualize results using Neptune's built-in visualization tools
+3. Export results for further analysis or integration with other systems
 
-Export graph data for ML processing.
-Set up and run data processing, model training, and endpoint creation for fraud detection. Leverage GNN (graphical neural networks).
-Perform inferences on the graph to predict fraudulent transactions using the GNNs.
+## Limitations and Future Improvements
 
+Current limitations:
+- Scalability for extremely large datasets
+- Limited to credit card transaction data
 
+Potential improvements:
+- Incorporate real-time streaming data processing
+- Integrate additional data sources (e.g., customer profiles, merchant information)
+- Implement more advanced GNN architectures
+- Develop a user-friendly interface for non-technical users
 
-Usage
-Run the notebook cells sequentially, following the comments and instructions provided in each section.
-Important Notes
+## Troubleshooting
 
-Ensure proper IAM roles and permissions are set up for accessing AWS services.
-Be aware of the costs associated with using Amazon Bedrock, Neptune, and Neptune ML.
-The notebook includes steps to clean up resources (e.g., deleting endpoints) to avoid unnecessary charges.
-
-Customization
-You can customize the pipeline by modifying:
-
--The input data source (adding more data)
--The knowledge graph schema
--The ML model configuration for fraud detection
-
-Troubleshooting
 If you encounter issues:
+
+1. Check AWS service quotas and limits
+2. Verify IAM roles and permissions
+3. Ensure all required libraries are installed and up-to-date
+4. Review CloudWatch logs for detailed error messages
+5. Consult AWS documentation for service-specific troubleshooting guides
+
+For persistent issues, please open an issue in the project repository or contact AWS support.
+
+## Important Notes
+
+- Be aware of the costs associated with using Amazon Bedrock, Neptune, and Neptune ML
+- The notebook includes steps to clean up resources (e.g., deleting endpoints) to avoid unnecessary charges
+- Regularly monitor your AWS usage and costs
+
+## Contributing
+
+Contributions to improve the pipeline are welcome. Please follow these steps:
+1. Fork the repository
+2. Create a new branch for your feature
+3. Commit your changes
+4. Push to the branch
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 Make sure you have model access on Bedrock
 Check AWS service quotas and limits
