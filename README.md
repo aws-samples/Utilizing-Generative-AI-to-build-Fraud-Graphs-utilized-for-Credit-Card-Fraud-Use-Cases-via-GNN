@@ -11,6 +11,10 @@ The pipeline consists of the following main steps:
 4. Machine Learning: Utilizing Neptune ML with Graph Neural Networks (GNNs)
 5. Fraud Detection: Performing inferences on the graph to predict fraudulent transactions
 
+As opposed to inductive inference where new data is added to a dynamic graph we use transductive inference to determine whether a transaction is fraudulent. During the training process, Neptune ML pre-computes and stores a model prediction for every node in the graph. Then, this can be looked up quickly when queried. 
+
+We based our code off of the following reference notebook: https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/03-Neptune-ML/03-Sample-Applications/03-Real-Time-Fraud-Detection-Using-Inductive-Inference.ipynb
+
 ## AWS Services Used
 
 - **Amazon Bedrock**: Used for generating the knowledge graph structure from transaction data
@@ -60,6 +64,7 @@ The pipeline consists of the following main steps:
    ```
 4. Set up Amazon Neptune cluster using the CloudFormation template:
    https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-quick-start.html
+
 
 ## Usage Guide
 
@@ -114,11 +119,12 @@ Potential improvements:
 
 If you encounter issues:
 
-1. Check AWS service quotas and limits
-2. Verify IAM roles and permissions
-3. Ensure all required libraries are installed and up-to-date
-4. Review CloudWatch logs for detailed error messages
-5. Consult AWS documentation for service-specific troubleshooting guides
+1. Enable model access on Bedrock
+2. Check AWS service quotas and limits
+3. Verify IAM roles and permissions
+4. Ensure all required libraries are installed and up-to-date
+5. Review CloudWatch logs for detailed error messages
+6. Consult AWS documentation for service-specific troubleshooting guides
 
 For persistent issues, please open an issue in the project repository or contact AWS support.
 
