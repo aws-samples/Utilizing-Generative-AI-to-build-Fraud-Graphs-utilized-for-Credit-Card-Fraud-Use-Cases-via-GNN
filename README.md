@@ -62,7 +62,7 @@ We based our code off of the following reference notebook: https://github.com/aw
 3. Clone this repository:
    ```
    git clone https://github.com/aws-samples/Utilizing-Generative-AI-to-build-Fraud-Graphs-utilized-for-Credit-Card-Fraud-Use-Cases-via-GNN.git
-   cd fraud-detection-knowledge-graph
+   cd Utilizing-Generative-AI-to-build-Fraud-Graphs-utilized-for-Credit-Card-Fraud-Use-Cases-via-GNN
    ```
 4. Set up Amazon Neptune cluster using the CloudFormation template:
    https://docs.aws.amazon.com/neptune/latest/userguide/machine-learning-quick-start.html
