@@ -1,4 +1,4 @@
-# Fraud Detection Knowledge Graph Pipeline
+# Utilizing Generative AI to build Fraud Graphs utilized for Credit Card Fraud Use Cases via GNN
 
 ## Overview
 
