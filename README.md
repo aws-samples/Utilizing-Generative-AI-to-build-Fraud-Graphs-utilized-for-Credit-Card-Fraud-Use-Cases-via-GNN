@@ -6,7 +6,7 @@ This project demonstrates a comprehensive pipeline for creating a fraud detectio
 
 The pipeline consists of the following main steps:
 1. Data Preparation: Preprocessing of credit card transaction data
-2. Knowledge Graph Generation: Using Amazon Bedrock with Claude 3 Sonnet
+2. Knowledge Graph Generation: Using Amazon Bedrock with Claude 3 Sonnet via LangChain LLMGraphTransformer library.
 3. Graph Database Population: Loading data into Amazon Neptune
 4. Machine Learning: Utilizing Neptune ML with Graph Neural Networks (GNNs)
 5. Fraud Detection: Performing inferences on the graph to predict fraudulent transactions
