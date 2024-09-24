@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates a comprehensive pipeline for creating a fraud detection knowledge graph using AWS services. The pipeline leverages advanced technologies to process credit card transaction data, generate a knowledge graph, and perform machine learning-based fraud detection.
+This project demonstrates a comprehensive pipeline for creating a fraud detection knowledge graph using Amazon Bedrock. The pipeline leverages advanced technologies to process credit card transaction data, generate a knowledge graph, and perform machine learning-based fraud detection.
 
 ### Use Case
 Fraud detection is a critical challenge that spans various industries, from finance and e-commerce to telecommunications. As transactions and data sources continue to grow in volume, traditional rule-based systems and machine learning models often struggle to keep up with the complexity and ever-evolving nature of fraud patterns.
