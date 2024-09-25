@@ -8,7 +8,7 @@ This project demonstrates a comprehensive pipeline for creating a fraud detectio
 Fraud detection is a critical challenge that spans various industries, from finance and e-commerce to telecommunications. As transactions and data sources continue to grow in volume, traditional rule-based systems and machine learning models often struggle to keep up with the complexity and ever-evolving nature of fraud patterns.
 
 ### Current Challenges 
-1. Icreased volumes for transactions and data sources
+1. Increased volumes for transactions and data sources
 2. Real-Time Detection Requirements
 3. Regulatory Compliance and Privacy Laws
 4. Difficulty in identifying patterns and anomalies
