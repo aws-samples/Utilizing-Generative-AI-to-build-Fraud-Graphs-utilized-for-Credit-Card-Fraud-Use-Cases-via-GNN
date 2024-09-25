@@ -25,7 +25,7 @@ The pipeline consists of the following main steps:
 
 ![arch_diagram](bedrock-neptune-fraud-detection.png)
 
-As opposed to inductive inference where new data is added to a dynamic graph we use transductive inference to determine whether a transaction is fraudulent. During the training process, Neptune ML pre-computes and stores a model prediction for every node in the graph. Then, this can be looked up quickly when queried. 
+As opposed to inductive inference where new data is added to a dynamic graph we use transductive inference to determine whether a transaction is fraudulent. During the training process, Neptune ML pre-computes and stores a model prediction for every node in the graph. Then, this can be looked up quickly when queried. We plan on adding inductive inference as part of our roadmap for this solution.
 
 We based our code off of the following reference notebook: https://github.com/aws/graph-notebook/blob/main/src/graph_notebook/notebooks/03-Neptune-ML/03-Sample-Applications/03-Real-Time-Fraud-Detection-Using-Inductive-Inference.ipynb
 
